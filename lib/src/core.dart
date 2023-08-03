@@ -12,8 +12,7 @@ class Location {
     required this.lng,
   });
 
-  factory Location.fromJson(Map<String, dynamic> json) =>
-      _$LocationFromJson(json);
+  factory Location.fromJson(Map<String, dynamic> json) => _$LocationFromJson(json);
   Map<String, dynamic> toJson() => _$LocationToJson(this);
 
   @override
@@ -38,8 +37,7 @@ class Geometry {
     this.bounds,
   });
 
-  factory Geometry.fromJson(Map<String, dynamic> json) =>
-      _$GeometryFromJson(json);
+  factory Geometry.fromJson(Map<String, dynamic> json) => _$GeometryFromJson(json);
   Map<String, dynamic> toJson() => _$GeometryToJson(this);
 }
 
@@ -54,8 +52,7 @@ class Bounds {
   });
 
   @override
-  String toString() =>
-      '${northeast.lat},${northeast.lng}|${southwest.lat},${southwest.lng}';
+  String toString() => '${northeast.lat},${northeast.lng}|${southwest.lat},${southwest.lng}';
 
   factory Bounds.fromJson(Map<String, dynamic> json) => _$BoundsFromJson(json);
   Map<String, dynamic> toJson() => _$BoundsToJson(this);
@@ -100,8 +97,7 @@ abstract class GoogleResponseList<T> extends GoogleResponseStatus {
 abstract class GoogleResponse<T> extends GoogleResponseStatus {
   final T result;
 
-  GoogleResponse(String status, String? errorMessage, this.result)
-      : super(status: status, errorMessage: errorMessage);
+  GoogleResponse(String status, String? errorMessage, this.result) : super(status: status, errorMessage: errorMessage);
 }
 
 @JsonSerializable()
@@ -121,8 +117,7 @@ class AddressComponent {
     required this.shortName,
   });
 
-  factory AddressComponent.fromJson(Map<String, dynamic> json) =>
-      _$AddressComponentFromJson(json);
+  factory AddressComponent.fromJson(Map<String, dynamic> json) => _$AddressComponentFromJson(json);
   Map<String, dynamic> toJson() => _$AddressComponentToJson(this);
 }
 
@@ -160,14 +155,13 @@ class _TravelMode {
   _TravelMode(this.value);
 
   // ignore: unused_element
-  factory _TravelMode.fromJson(Map<String, dynamic> json) =>
-      _$_TravelModeFromJson(json);
-  Map<String, dynamic> toJson() => _$_TravelModeToJson(this);
+  factory _TravelMode.fromJson(Map<String, dynamic> json) => _$TravelModeFromJson(json);
+  Map<String, dynamic> toJson() => _$TravelModeToJson(this);
 }
 
 extension TravelModeExt on TravelMode {
   static TravelMode fromApiString(String mode) {
-    return _$enumDecode(_$TravelModeEnumMap, mode);
+    return $enumDecode(_$TravelModeEnumMap, mode);
   }
 
   String toApiString() {
@@ -189,14 +183,13 @@ class _RouteType {
   _RouteType(this.value);
 
   // ignore: unused_element
-  factory _RouteType.fromJson(Map<String, dynamic> json) =>
-      _$_RouteTypeFromJson(json);
-  Map<String, dynamic> toJson() => _$_RouteTypeToJson(this);
+  factory _RouteType.fromJson(Map<String, dynamic> json) => _$RouteTypeFromJson(json);
+  Map<String, dynamic> toJson() => _$RouteTypeToJson(this);
 }
 
 extension RouteTypeExt on RouteType {
   static RouteType fromApiString(String mode) {
-    return _$enumDecode(_$RouteTypeEnumMap, mode);
+    return $enumDecode(_$RouteTypeEnumMap, mode);
   }
 
   String toApiString() {
@@ -216,13 +209,13 @@ class _Unit {
   _Unit(this.value);
 
   // ignore: unused_element
-  factory _Unit.fromJson(Map<String, dynamic> json) => _$_UnitFromJson(json);
-  Map<String, dynamic> toJson() => _$_UnitToJson(this);
+  factory _Unit.fromJson(Map<String, dynamic> json) => _$UnitFromJson(json);
+  Map<String, dynamic> toJson() => _$UnitToJson(this);
 }
 
 extension UnitExt on Unit {
   static Unit fromApiString(String mode) {
-    return _$enumDecode(_$UnitEnumMap, mode);
+    return $enumDecode(_$UnitEnumMap, mode);
   }
 
   String toApiString() {
@@ -244,14 +237,13 @@ class _TrafficModel {
   _TrafficModel(this.value);
 
   // ignore: unused_element
-  factory _TrafficModel.fromJson(Map<String, dynamic> json) =>
-      _$_TrafficModelFromJson(json);
-  Map<String, dynamic> toJson() => _$_TrafficModelToJson(this);
+  factory _TrafficModel.fromJson(Map<String, dynamic> json) => _$TrafficModelFromJson(json);
+  Map<String, dynamic> toJson() => _$TrafficModelToJson(this);
 }
 
 extension TrafficModelExt on TrafficModel {
   static TrafficModel fromApiString(String mode) {
-    return _$enumDecode(_$TrafficModelEnumMap, mode);
+    return $enumDecode(_$TrafficModelEnumMap, mode);
   }
 
   String toApiString() {
@@ -274,14 +266,13 @@ class _TransitMode {
   _TransitMode(this.value);
 
   // ignore: unused_element
-  factory _TransitMode.fromJson(Map<String, dynamic> json) =>
-      _$_TransitModeFromJson(json);
-  Map<String, dynamic> toJson() => _$_TransitModeToJson(this);
+  factory _TransitMode.fromJson(Map<String, dynamic> json) => _$TransitModeFromJson(json);
+  Map<String, dynamic> toJson() => _$TransitModeToJson(this);
 }
 
 extension TransitModeExt on TransitMode {
   static TransitMode fromApiString(String mode) {
-    return _$enumDecode(_$TransitModeEnumMap, mode);
+    return $enumDecode(_$TransitModeEnumMap, mode);
   }
 
   String toApiString() {
@@ -303,14 +294,13 @@ class _TransitRoutingPreferences {
   _TransitRoutingPreferences(this.value);
 
   // ignore: unused_element
-  factory _TransitRoutingPreferences.fromJson(Map<String, dynamic> json) =>
-      _$_TransitRoutingPreferencesFromJson(json);
-  Map<String, dynamic> toJson() => _$_TransitRoutingPreferencesToJson(this);
+  factory _TransitRoutingPreferences.fromJson(Map<String, dynamic> json) => _$TransitRoutingPreferencesFromJson(json);
+  Map<String, dynamic> toJson() => _$TransitRoutingPreferencesToJson(this);
 }
 
 extension TransitRoutingPreferencesExt on TransitRoutingPreferences {
   static TransitRoutingPreferences fromApiString(String mode) {
-    return _$enumDecode(_$TransitRoutingPreferencesEnumMap, mode);
+    return $enumDecode(_$TransitRoutingPreferencesEnumMap, mode);
   }
 
   String toApiString() {
