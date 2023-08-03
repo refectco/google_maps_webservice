@@ -201,14 +201,10 @@ class GoogleMapsPlaces extends GoogleWebService {
     String? pagetoken,
   }) {
     if (radius != null && rankby != null) {
-      throw ArgumentError(
-          "'rankby' must not be included if 'radius' is specified.");
+      throw ArgumentError("'rankby' must not be included if 'radius' is specified.");
     }
 
-    if (rankby == 'distance' &&
-        keyword == null &&
-        type == null &&
-        name == null) {
+    if (rankby == 'distance' && keyword == null && type == null && name == null) {
       throw ArgumentError(
           "If 'rankby=distance' is specified, then one or more of 'keyword', 'name', or 'type' is required.");
     }
@@ -521,11 +517,9 @@ class GoogleMapsPlaces extends GoogleWebService {
         .toString();
   }
 
-  PlacesSearchResponse _decodeSearchResponse(Response res) =>
-      PlacesSearchResponse.fromJson(json.decode(res.body));
+  PlacesSearchResponse _decodeSearchResponse(Response res) => PlacesSearchResponse.fromJson(json.decode(res.body));
 
-  PlacesDetailsResponse _decodeDetailsResponse(Response res) =>
-      PlacesDetailsResponse.fromJson(json.decode(res.body));
+  PlacesDetailsResponse _decodeDetailsResponse(Response res) => PlacesDetailsResponse.fromJson(json.decode(res.body));
 
   PlacesAutocompleteResponse _decodeAutocompleteResponse(Response res) =>
       PlacesAutocompleteResponse.fromJson(json.decode(res.body));
@@ -551,8 +545,7 @@ class PlacesSearchResponse extends GoogleResponseStatus {
     this.nextPageToken,
   }) : super(status: status, errorMessage: errorMessage);
 
-  factory PlacesSearchResponse.fromJson(Map<String, dynamic> json) =>
-      _$PlacesSearchResponseFromJson(json);
+  factory PlacesSearchResponse.fromJson(Map<String, dynamic> json) => _$PlacesSearchResponseFromJson(json);
   Map<String, dynamic> toJson() => _$PlacesSearchResponseToJson(this);
 }
 
@@ -617,8 +610,7 @@ class PlacesSearchResult {
     this.vicinity,
   });
 
-  factory PlacesSearchResult.fromJson(Map<String, dynamic> json) =>
-      _$PlacesSearchResultFromJson(json);
+  factory PlacesSearchResult.fromJson(Map<String, dynamic> json) => _$PlacesSearchResultFromJson(json);
   Map<String, dynamic> toJson() => _$PlacesSearchResultToJson(this);
 }
 
@@ -681,6 +673,44 @@ class PlaceDetails {
 
   final Geometry? geometry;
 
+  final PlusCode? plusCode;
+
+  final bool? reservable;
+
+  final bool? servesBeer;
+
+  final bool? servesBreakfast;
+
+  final bool? servesBrunch;
+
+  final bool? servesDinner;
+
+  final bool? servesLunch;
+
+  final bool? servesVegetarianFood;
+
+  final bool? servesWine;
+
+  final bool? takeout;
+
+  final int? userRatingsTotal;
+
+  final bool? wheelChairAccessibleEntrance;
+
+  final String? businessStatus;
+
+  final bool? curbsidePickup;
+
+  final bool? delivery;
+
+  final bool? dineIn;
+
+  final PlaceEditorialSummary? editorialSummary;
+
+  final String? iconBackgroundColor;
+
+  final String? iconMaskBaseUri;
+
   PlaceDetails({
     this.adrAddress,
     required this.name,
@@ -704,10 +734,28 @@ class PlaceDetails {
     this.vicinity,
     this.website,
     this.geometry,
+    this.businessStatus,
+    this.curbsidePickup,
+    this.delivery,
+    this.dineIn,
+    this.editorialSummary,
+    this.iconBackgroundColor,
+    this.iconMaskBaseUri,
+    this.plusCode,
+    this.reservable,
+    this.servesBeer,
+    this.servesBreakfast,
+    this.servesBrunch,
+    this.servesDinner,
+    this.servesLunch,
+    this.servesVegetarianFood,
+    this.servesWine,
+    this.takeout,
+    this.userRatingsTotal,
+    this.wheelChairAccessibleEntrance,
   });
 
-  factory PlaceDetails.fromJson(Map<String, dynamic> json) =>
-      _$PlaceDetailsFromJson(json);
+  factory PlaceDetails.fromJson(Map<String, dynamic> json) => _$PlaceDetailsFromJson(json);
   Map<String, dynamic> toJson() => _$PlaceDetailsToJson(this);
 }
 
@@ -728,9 +776,36 @@ class OpeningHoursDetail {
     this.weekdayText = const <String>[],
   });
 
-  factory OpeningHoursDetail.fromJson(Map<String, dynamic> json) =>
-      _$OpeningHoursDetailFromJson(json);
+  factory OpeningHoursDetail.fromJson(Map<String, dynamic> json) => _$OpeningHoursDetailFromJson(json);
   Map<String, dynamic> toJson() => _$OpeningHoursDetailToJson(this);
+}
+
+@JsonSerializable()
+class PlaceEditorialSummary {
+  final String? language;
+  final String? overview;
+
+  PlaceEditorialSummary({
+    this.language,
+    this.overview,
+  });
+
+  factory PlaceEditorialSummary.fromJson(Map<String, dynamic> json) => _$PlaceEditorialSummaryFromJson(json);
+  Map<String, dynamic> toJson() => _$PlaceEditorialSummaryToJson(this);
+}
+
+@JsonSerializable()
+class PlusCode {
+  final String globalCode;
+  final String? compoundCode;
+
+  PlusCode({
+    required this.globalCode,
+    this.compoundCode,
+  });
+
+  factory PlusCode.fromJson(Map<String, dynamic> json) => _$PlusCodeFromJson(json);
+  Map<String, dynamic> toJson() => _$PlusCodeToJson(this);
 }
 
 @JsonSerializable()
@@ -746,8 +821,7 @@ class OpeningHoursPeriodDate {
 
   OpeningHoursPeriodDate({required this.day, required this.time});
 
-  factory OpeningHoursPeriodDate.fromJson(Map<String, dynamic> json) =>
-      _$OpeningHoursPeriodDateFromJson(json);
+  factory OpeningHoursPeriodDate.fromJson(Map<String, dynamic> json) => _$OpeningHoursPeriodDateFromJson(json);
   Map<String, dynamic> toJson() => _$OpeningHoursPeriodDateToJson(this);
 }
 
@@ -758,8 +832,7 @@ class OpeningHoursPeriod {
 
   OpeningHoursPeriod({this.open, this.close});
 
-  factory OpeningHoursPeriod.fromJson(Map<String, dynamic> json) =>
-      _$OpeningHoursPeriodFromJson(json);
+  factory OpeningHoursPeriod.fromJson(Map<String, dynamic> json) => _$OpeningHoursPeriodFromJson(json);
   Map<String, dynamic> toJson() => _$OpeningHoursPeriodToJson(this);
 }
 
@@ -794,8 +867,7 @@ class AlternativeId {
 
   AlternativeId({required this.placeId, required this.scope});
 
-  factory AlternativeId.fromJson(Map<String, dynamic> json) =>
-      _$AlternativeIdFromJson(json);
+  factory AlternativeId.fromJson(Map<String, dynamic> json) => _$AlternativeIdFromJson(json);
   Map<String, dynamic> toJson() => _$AlternativeIdToJson(this);
 }
 
@@ -834,8 +906,7 @@ class PlacesDetailsResponse extends GoogleResponseStatus {
           errorMessage: errorMessage,
         );
 
-  factory PlacesDetailsResponse.fromJson(Map<String, dynamic> json) =>
-      _$PlacesDetailsResponseFromJson(json);
+  factory PlacesDetailsResponse.fromJson(Map<String, dynamic> json) => _$PlacesDetailsResponseFromJson(json);
   Map<String, dynamic> toJson() => _$PlacesDetailsResponseToJson(this);
 }
 
@@ -890,8 +961,7 @@ class PlacesAutocompleteResponse extends GoogleResponseStatus {
           errorMessage: errorMessage,
         );
 
-  factory PlacesAutocompleteResponse.fromJson(Map<String, dynamic> json) =>
-      _$PlacesAutocompleteResponseFromJson(json);
+  factory PlacesAutocompleteResponse.fromJson(Map<String, dynamic> json) => _$PlacesAutocompleteResponseFromJson(json);
   Map<String, dynamic> toJson() => _$PlacesAutocompleteResponseToJson(this);
 }
 
@@ -930,8 +1000,7 @@ class Prediction {
     this.structuredFormatting,
   });
 
-  factory Prediction.fromJson(Map<String, dynamic> json) =>
-      _$PredictionFromJson(json);
+  factory Prediction.fromJson(Map<String, dynamic> json) => _$PredictionFromJson(json);
   Map<String, dynamic> toJson() => _$PredictionToJson(this);
 }
 
@@ -951,10 +1020,7 @@ class Term {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is Term &&
-          runtimeType == other.runtimeType &&
-          offset == other.offset &&
-          value == other.value;
+      other is Term && runtimeType == other.runtimeType && offset == other.offset && value == other.value;
 
   @override
   int get hashCode => offset.hashCode ^ value.hashCode;
@@ -970,17 +1036,13 @@ class MatchedSubstring {
     required this.length,
   });
 
-  factory MatchedSubstring.fromJson(Map<String, dynamic> json) =>
-      _$MatchedSubstringFromJson(json);
+  factory MatchedSubstring.fromJson(Map<String, dynamic> json) => _$MatchedSubstringFromJson(json);
   Map<String, dynamic> toJson() => _$MatchedSubstringToJson(this);
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MatchedSubstring &&
-          runtimeType == other.runtimeType &&
-          offset == other.offset &&
-          length == other.length;
+      other is MatchedSubstring && runtimeType == other.runtimeType && offset == other.offset && length == other.length;
 
   @override
   int get hashCode => offset.hashCode ^ length.hashCode;
@@ -1000,7 +1062,6 @@ class StructuredFormatting {
     this.secondaryText,
   });
 
-  factory StructuredFormatting.fromJson(Map<String, dynamic> json) =>
-      _$StructuredFormattingFromJson(json);
+  factory StructuredFormatting.fromJson(Map<String, dynamic> json) => _$StructuredFormattingFromJson(json);
   Map<String, dynamic> toJson() => _$StructuredFormattingToJson(this);
 }
